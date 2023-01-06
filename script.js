@@ -1,0 +1,29 @@
+{
+	var HTML_content;
+
+	function Init(){
+		console.log("This is a script demo.");
+
+		HTML_content = HTML_content = document.getElementById("content");
+
+
+		LoadLibrary();
+	}
+
+	function LoadLibrary(){
+		xmlhttp = new XMLHttpRequest();
+		/*xmlhttp.open("GET", "/lib/Introduction.md", true);*/
+		// xmlhttp.open("GET", "/README.md", true);
+
+		xmlhttp.open("GET", "./Library/Introduction.md", false);
+		xmlhttp.send();
+
+		HTML_content.innerHTML = marked.parse(xmlhttp.responseText);
+
+
+
+
+		console.log(xmlhttp.responseText);
+	}
+
+}
