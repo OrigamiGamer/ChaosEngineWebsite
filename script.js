@@ -41,7 +41,7 @@
 		xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", "./documents/" + name + ".md", false);
 		xmlhttp.send();
-		HTML_content.innerHTML = marked.parse(xmlhttp.responseText);
+		Elmt_content.innerHTML = marked.parse(xmlhttp.responseText);
 
 		console.log(xmlhttp.responseText);
 	}
