@@ -1,18 +1,45 @@
-{
-	var HTML_content;
+﻿{
+	var Elmt_content,
+		Elmt_Index_List,
+		Elmt_Index_Item;
+
 
 	function Init() {
 		console.log("This is a script demo.");
 
-		HTML_content = HTML_content = document.getElementById("md-content");
+		Elmt_content = document.getElementById("content-markdown");
+		Elmt_Index_List = document.getElementById("index-list");
+		Elmt_Index_Item = document.getElementById("index-item").cloneNode(true);
 
-
-		LoadLibrary();
+		document.getElementById("index-item").remove();
 	}
 
-	function LoadLibrary() {
+	function LoadDocuments() {
 		xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "./Library/Introduction.md", false);
+
+		for (let i = 0; i < doc_index.length; i++) {
+			// LoadArticle(doc_index[i - 1]);
+			// doc_index[i - 1]
+			let _item = Elmt_Index_Item.cloneNode(true);
+			_item.setAttribute("id", "index-item-" + i.toString());
+			_item.setAttribute("item-tag", doc_index[i]);
+			_item.addEventListener("click", function () { LoadArticle(doc_index[i]) })
+			_item.innerHTML = doc_index[i];
+			Elmt_Index_List.appendChild(_item);
+
+		}
+
+
+	}
+
+	// 初始化
+	Init();
+	LoadDocuments();
+
+
+	function LoadArticle(name) {
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET", "./documents/" + name + ".md", false);
 		xmlhttp.send();
 		HTML_content.innerHTML = marked.parse(xmlhttp.responseText);
 
@@ -20,6 +47,7 @@
 	}
 
 
-	Init();
+
+
 
 }

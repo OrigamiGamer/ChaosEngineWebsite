@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html>
 
-<head id = "head">
+<head id="head">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="Documents/doc_index.js"></script>
     <!-- script src="https://raw.githubusercontent.com/markedjs/marked/master/marked.min.js"></script -->
     <title>ChaosEngine Docs</title>
 </head>
 
-<body>
-    <div id="content-box" class="box">
+<body id="body">
+    <!-- <div id="content-box" class="box">
         <div class="card-box"></div>
         <div class="card-box"></div>
         <div class="card-box"></div>
         <div class="card-box"></div>
     </div>
 
-	<div id="md-content">No anything here....</div>
+	<div id="md-content">No anything here....</div> -->
+    <div id="preview-box" class="preview-box">
 
+        <div id="index-list" class="index-list">
+            <div id="index-item" class="index-item">Item of Index</div>
+        </div>
+        <div id="article-content" class="article-content">
+            <div id="content-markdown"></div>
+        </div>
+
+    </div>
 </body>
 
-<script src="script.js" ></script>
+<script src="script.js"></script>
 
 </html>
