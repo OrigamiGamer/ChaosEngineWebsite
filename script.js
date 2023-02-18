@@ -29,12 +29,29 @@
 
 		}
 
+	}
+
+	function _local_LoadDocuments() {
+		xmlhttp = new XMLHttpRequest();
+
+		for (let i = 0; i < doc_index.length; i++) {
+			let _item = Elmt_Index_Item.cloneNode(true);
+			_item.setAttribute("id", "index-item-" + i.toString());
+			_item.setAttribute("item-tag", doc_index[i]);
+			_item.addEventListener("click", function () { _local_LoadArticle(_test_md) })
+			_item.innerHTML = doc_index[i];
+			Elmt_Index_List.appendChild(_item);
+
+		}
+
 
 	}
 
 	// 初始化
 	Init();
 	LoadDocuments();
+	// _local_LoadDocuments();
+
 
 
 	function LoadArticle(name) {
@@ -46,6 +63,11 @@
 		console.log(xmlhttp.responseText);
 	}
 
+	function _local_LoadArticle(rawString) {
+		Elmt_content.innerHTML = marked.parse(rawString);
+
+		console.log(xmlhttp.responseText);
+	}
 
 
 

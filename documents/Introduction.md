@@ -1,4 +1,4 @@
-# Introduction
+<!-- # Introduction
 
 ## Intro
 
@@ -30,4 +30,8 @@ int main(){
     return(0);
 }
 
-```
+``` -->
+
+
+## About ChaosEngine
+It's a Game Engine that supports to make your own game by Programming(E) or Interactive Engine Editor.
