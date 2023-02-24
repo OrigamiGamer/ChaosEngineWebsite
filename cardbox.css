@@ -1,0 +1,39 @@
+/* Card Box */
+div.box {
+	display: flex;
+	flex-direction: row;
+	position: fixed;
+	left: 10%;
+	top: 20%;
+	height: auto;
+	/* overflow: hidden; */
+}
+
+div.card-box {
+	position: relative;
+	display: flex;
+
+	background-image: url("https://api.ucany.net/acg-pc.php?58");
+	background-size: cover;
+	background-position: 50% 50%;
+	background-color: #696969;
+	width: 200px;
+	height: 400px;
+	margin-left: 40px;
+	margin-top: 40px;
+
+	border-radius: 24px;
+	box-shadow: 0px 0px 10px rgba(10, 10, 10, 1);
+
+	transition: 0.5s;
+}
+
+div.card-box:hover {
+	transform:
+		translateY(-50px) scale(1.1);
+}
+
+div.card-box:active {
+	transform:
+		translateY(-50px) scale(0.9);
+}
