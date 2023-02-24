@@ -15,8 +15,6 @@
 	}
 
 	function LoadDocuments() {
-		xmlhttp = new XMLHttpRequest();
-
 		for (let i = 0; i < doc_index.length; i++) {
 			// LoadArticle(doc_index[i - 1]);
 			// doc_index[i - 1]
@@ -32,8 +30,6 @@
 	}
 
 	function _local_LoadDocuments() {
-		xmlhttp = new XMLHttpRequest();
-
 		for (let i = 0; i < doc_index.length; i++) {
 			let _item = Elmt_Index_Item.cloneNode(true);
 			_item.setAttribute("id", "index-item-" + i.toString());
@@ -56,7 +52,7 @@
 
 	function LoadArticle(name) {
 		xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "./documents/" + name + ".md", false);
+		xmlhttp.open("GET", "./documents/" + name + ".md", true);
 		xmlhttp.send();
 		Elmt_content.innerHTML = marked.parse(xmlhttp.responseText);
 
