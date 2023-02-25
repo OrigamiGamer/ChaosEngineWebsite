@@ -54,9 +54,10 @@
 		xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", "./documents/" + name + ".md", true);
 		xmlhttp.send();
-		Elmt_content.innerHTML = marked.parse(xmlhttp.responseText);
-
-		console.log(xmlhttp.responseText);
+		xmlhttp.onload = function () {
+			Elmt_content.innerHTML = marked.parse(xmlhttp.responseText);
+			console.log(xmlhttp.responseText);
+		}
 	}
 
 	function _local_LoadArticle(rawString) {
