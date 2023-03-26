@@ -46,7 +46,7 @@
 	// 初始化
 	Init();
 	LoadDocuments();
-	_local_LoadDocuments();
+	// _local_LoadDocuments();
 
 
 
