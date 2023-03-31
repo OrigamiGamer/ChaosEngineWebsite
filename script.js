@@ -55,7 +55,7 @@
 
 		xmlhttp.onload = function () {
 			Elmt_content.innerHTML = marked.parse(xmlhttp.responseText);
-			console.log(xmlhttp.responseText);
+			// console.log(xmlhttp.responseText);
 		}
 
 		xmlhttp.open("GET", "./documents/" + name + ".md", true);
