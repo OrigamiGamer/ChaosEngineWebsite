@@ -1,75 +1,92 @@
-﻿{
-	var Elmt_content,
-		Elmt_Index_List,
-		Elmt_Index_Item;
+﻿// Referance Elements //
+var RefElmt = {
+	Body: HTMLElement,
+	Content: HTMLElement,
+	List: HTMLElement,
+}
 
-
-	function Init() {
-		console.log("This is a script demo.");
-
-		Elmt_content = document.getElementById("content-markdown");
-		Elmt_Index_List = document.getElementById("index-list");
-		Elmt_Index_Item = document.getElementById("index-item").cloneNode(true);
-
-		document.getElementById("index-item").remove();
+const Model = {
+	Item: {
+		title: "",
+		file: "",
+		list: []
 	}
+}
 
-	function LoadDocuments() {
-		for (let i = 0; i < doc_index.length; i++) {
-			// LoadArticle(doc_index[i - 1]);
-			// doc_index[i - 1]
-			let _item = Elmt_Index_Item.cloneNode(true);
-			_item.setAttribute("id", "index-item-" + i.toString());
-			_item.setAttribute("item-tag", doc_index[i]);
-			_item.addEventListener("click", function () { LoadArticle(doc_index[i]) })
-			_item.innerHTML = doc_index[i];
-			Elmt_Index_List.appendChild(_item);
+// 初始化 //
+function Init() {
+	console.log("This is a script demo.");
 
-		}
-
-	}
-
-	function _local_LoadDocuments() {
-		for (let i = 0; i < doc_index.length; i++) {
-			let _item = Elmt_Index_Item.cloneNode(true);
-			_item.setAttribute("id", "index-item-" + i.toString());
-			_item.setAttribute("item-tag", doc_index[i]);
-			_item.addEventListener("click", function () { _local_LoadArticle(_test_md) })
-			_item.innerHTML = doc_index[i];
-			Elmt_Index_List.appendChild(_item);
-
-		}
+	// Get Referance Elements 
+	RefElmt.Body = document.getElementsByName("body");
+	RefElmt.Content = document.getElementById("content-markdown");
+	RefElmt.List = document.getElementById("index-list");
 
 
-	}
+	LoadDoc();
+}
 
-	// 初始化
-	Init();
-	LoadDocuments();
-	// _local_LoadDocuments();
+// 加载文档 //
+function LoadDoc() {
+	var root = Global_Doc.root;
 
-
-
-	function LoadArticle(name) {
-		xmlhttp = new XMLHttpRequest();
-
-		xmlhttp.onload = function () {
-			Elmt_content.innerHTML = marked.parse(xmlhttp.responseText);
-			// console.log(xmlhttp.responseText);
-		}
-
-		xmlhttp.open("GET", "./documents/" + name + ".md", true);
-		xmlhttp.send();
-
-	}
-
-	function _local_LoadArticle(rawString) {
-		Elmt_content.innerHTML = marked.parse(rawString);
-
-		console.log(xmlhttp.responseText);
-	}
-
-
-
+	RefElmt.List.innerHTML = "";
+	RefElmt.List.appendChild(parseList(root));
 
 }
+
+// list //
+function parseList(newItem = Model.Item) {
+	let _ul = document.createElement("ul");
+
+	if (newItem.list.length == 0) {
+		// no-sublist //
+		let _li = document.createElement("li");
+		let _div = document.createElement("div");
+		_div.setAttribute("class", "list-item");
+
+		// - get tags of item
+		_div.innerHTML = newItem.title;
+
+		// - events of item
+		_li.addEventListener("click", function () { LoadArticle(newItem.file) })
+
+		_li.appendChild(_div);
+		_ul.appendChild(_li);
+		return (_ul);
+	} else {
+		// with-sublist //
+		let _details = document.createElement("details");
+		_details.setAttribute("open", "");
+		let _summary = document.createElement("summary");
+
+		for (let i = 0; i < newItem.list.length; i++) {
+			let _li = document.createElement("li");
+			_li.appendChild(parseList(newItem.list[i]));
+			_ul.appendChild(_li);
+
+			// - get tags of item
+			_summary.innerHTML = newItem.title;
+
+		}
+		_details.appendChild(_summary);
+		_details.appendChild(_ul);
+		return (_details);
+	}
+
+}
+
+// 加载文章 //
+function LoadArticle(name) {
+	xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.onload = function () {
+		RefElmt.Content.innerHTML = marked.parse(xmlhttp.responseText);
+	}
+	xmlhttp.open("GET", "./documents/" + name + ".md", true);
+	xmlhttp.send();
+
+}
+
+// Start //
+RefElmt.Body.onload = Init();

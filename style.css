@@ -31,35 +31,50 @@ div.left-title {
 }
 
 div.index-list {
-	/* background-color: rgb(50, 50, 50); */
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-
-	/* border-width: 2px; */
-	border-color: #555;
-	border-radius: 4px;
-}
-
-div.index-item {
 	background-color: rgb(30, 30, 30);
 	width: 100%;
-	height: 30px;
+	height: 100%;
+	padding: 5px;
 	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	overflow: hidden;
-	margin-bottom: 2px;
-	border-radius: 4px;
-
-	transition: 0.3s;
+	flex-direction: column;
+	border-radius: 10px;
 }
 
-div.index-item:hover {
-	background-color: rgb(50, 50, 50);
+
+
+
+details {
+	font-size: 18px;
+	transition: 0.25s;
 }
+
+details:hover {
+	padding-left: 4px;
+}
+
+details>summary {
+	/* background-color: #222; */
+}
+
+li {
+	margin-left: -20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	list-style-type: none;
+}
+
+
+div.list-item {
+	transition: 0.25s;
+}
+
+div.list-item:hover {
+	background-color: rgb(50, 60, 100);
+}
+
+
+
+
 
 div.article-content {
 	display: flex;
@@ -83,3 +98,49 @@ div.content-box {
 div.content-markdown {
 	margin: 4px;
 }
+
+
+
+
+
+
+
+
+/*
+div.index-sublist {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	margin: 5px;
+	border-color: #333;
+	border-radius: 4px;
+}
+
+div.index-item {
+	background-color: rgb(30, 30, 30);
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	overflow: hidden;
+	margin-bottom: 2px;
+	border-radius: 4px;
+
+	transition: 0.3s;
+}
+
+div.index-item:hover {
+	background-color: rgb(50, 50, 50);
+}
+
+div.item-title {
+	display: flex;
+}
+
+div.hidden {
+	display: none;
+} 
+*/
