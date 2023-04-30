@@ -34,7 +34,6 @@ int main(){
 
 
 # About ChaosEngine
-### It's a Game Engine that supports to make your own game by Programming(E) or Interactive Engine Editor.
-### You could program the game logic through the programming language named "E", which is created to be used to program in Chinese.
-### You could also realize some simple logic for your game through script, such as JavaScript(V8).
-### The Engine provided a Script environment, so we can also realize some simple logic you wnat for your game by Script. 
+#### It's a Game Engine that supports to make your own game by Programming(E) or Interactive Engine Editor.
+#### You could program the game logic through the programming language named "E", which is created to be used to program in Chinese.
+#### The Engine provided a Script environment, so you can also realize some simple logic you want for your game by Script.
