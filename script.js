@@ -9,6 +9,7 @@ const Model = {
 	Item: {
 		title: "",
 		file: "",
+		tag: "",
 		list: []
 	}
 }
@@ -47,9 +48,13 @@ function parseList(newItem = Model.Item) {
 
 		// - get tags of item
 		_div.innerHTML = newItem.title;
+		loadTag(_div, newItem.tag);
+
 
 		// - events of item
-		_li.addEventListener("click", function () { LoadArticle(newItem.file) })
+		_li.addEventListener("click", function () {
+			LoadArticle(newItem.file);
+		})
 
 		_li.appendChild(_div);
 		_ul.appendChild(_li);
@@ -67,11 +72,24 @@ function parseList(newItem = Model.Item) {
 
 			// - get tags of item
 			_summary.innerHTML = newItem.title;
+			loadTag(_summary, newItem.tag);
 
 		}
 		_details.appendChild(_summary);
 		_details.appendChild(_ul);
 		return (_details);
+	}
+
+	function loadTag(newElmt = HTMLElement, newTag = newItem.tag) {
+		let _class = newElmt.getAttribute("class") + " ";
+		switch (newTag) {
+			case "class":
+				newElmt.setAttribute("class", _class + "code-class");
+				break;
+			case "interface":
+				newElmt.setAttribute("class", _class + "code-interface");
+				break;
+		}
 	}
 
 }
@@ -82,6 +100,7 @@ function LoadArticle(name) {
 
 	xmlhttp.onload = function () {
 		RefElmt.Content.innerHTML = marked.parse(xmlhttp.responseText);
+		hljs.highlightAll();
 	}
 	xmlhttp.open("GET", "./documents/" + name + ".md", true);
 	xmlhttp.send();

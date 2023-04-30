@@ -1,0 +1,48 @@
+.hljs {
+    font-family: "Microsoft YaHei Mono" !important;
+    background: rgb(15, 15, 15) !important;
+    color: rgb(210, 210, 210) !important;
+    border-radius: 10px;
+}
+
+.hljs-function {
+    color: inherit;
+}
+
+.hljs-type {
+    color: rgb(60, 150, 220) !important;
+}
+
+.hljs-title {
+    color: rgb(220 220 168) !important;
+}
+
+.hljs-params {
+    color: inherit;
+    /* color: rgb(150, 220, 230) !important; */
+}
+
+.hljs-keyword {
+    color: rgb(60, 150, 220) !important;
+    /* color: rgb(200 120 160) !important; */
+}
+
+.hljs-built_in {
+    color: rgb(60, 150, 220) !important;
+}
+
+.hljs-string {
+    color: rgb(206 145 120) !important;
+}
+
+.hljs-number {
+    color: rgb(180 205 167) !important;
+}
+
+.class_ {
+    color: rgb(79 201 177) !important;
+}
+
+.hljs-comment {
+    color: rgb(107 155 85) !important;
+}
