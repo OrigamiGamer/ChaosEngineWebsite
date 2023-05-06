@@ -1,6 +1,6 @@
 .hljs {
     font-family: "Microsoft YaHei Mono" !important;
-    background: rgb(15, 15, 15) !important;
+    background: rgba(10, 10, 10, 0.5) !important;
     color: rgb(210, 210, 210) !important;
     border-radius: 10px;
 }

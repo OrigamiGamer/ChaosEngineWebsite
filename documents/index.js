@@ -5,62 +5,73 @@ const Global_Doc = {
         list: [
             {
                 title: "Introduction",
-                file: "Introduction",
+                file: "Introduction.md",
                 list: []
             },
             {
                 title: "Start",
-                file: "Start",
+                file: "Start.md",
                 list: []
             },
             {
+                title: "Demo",
+                file:"Demo/",
+                list:[
+                    {
+                        title:"NewGame",
+                        file:"NewGame.md",
+                        list:[]
+                    }
+                ]
+            },
+            {
                 title: "Class",
-                file: "",
+                file: "Class/",
                 list: [
                     {
                         title: "ChaosEngine",
-                        file: "",
+                        file: "ChaosEngine/",
                         tag: "class",
                         list: [
                             {
                                 title: "Init",
-                                file: "Class/ChaosEngine/Init",
+                                file: "Init.md",
                                 tag: "interface",
                                 list: []
                             },
                             {
                                 title: "Start",
-                                file: "Class/ChaosEngine/Start",
+                                file: "Start",
                                 tag: "interface",
                                 list: []
                             },
                             {
                                 title: "Stop",
-                                file: "Class/ChaosEngine/",
+                                file: "",
                                 tag: "interface",
                                 list: []
                             },
                             {
                                 title: "SetWindowSize",
-                                file: "Class/ChaosEngine/",
+                                file: "",
                                 tag: "interface",
                                 list: []
                             },
                             {
                                 title: "GetWindowSize",
-                                file: "Class/ChaosEngine/",
+                                file: "",
                                 tag: "interface",
                                 list: []
                             },
                             {
                                 title: "GetMousePos",
-                                file: "Class/ChaosEngine/",
+                                file: "",
                                 tag: "interface",
                                 list: []
                             },
                             {
                                 title: "GetRuntimeFPS",
-                                file: "Class/ChaosEngine/",
+                                file: "",
                                 tag: "interface",
                                 list: []
                             },

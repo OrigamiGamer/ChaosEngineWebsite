@@ -32,14 +32,15 @@ function LoadDoc() {
 	var root = Global_Doc.root;
 
 	RefElmt.List.innerHTML = "";
-	RefElmt.List.appendChild(parseList(root));
+	RefElmt.List.appendChild(parseList(root,));
 
 }
 
 // list //
-function parseList(newItem = Model.Item) {
+function parseList(newItem = Model.Item, rootFile = "") {
 	let _ul = document.createElement("ul");
 
+	// ItemType //
 	if (newItem.list.length == 0) {
 		// no-sublist //
 		let _li = document.createElement("li");
@@ -53,12 +54,13 @@ function parseList(newItem = Model.Item) {
 
 		// - events of item
 		_li.addEventListener("click", function () {
-			LoadArticle(newItem.file);
+			LoadArticle(rootFile + newItem.file);
 		})
 
 		_li.appendChild(_div);
 		_ul.appendChild(_li);
 		return (_ul);
+
 	} else {
 		// with-sublist //
 		let _details = document.createElement("details");
@@ -67,7 +69,7 @@ function parseList(newItem = Model.Item) {
 
 		for (let i = 0; i < newItem.list.length; i++) {
 			let _li = document.createElement("li");
-			_li.appendChild(parseList(newItem.list[i]));
+			_li.appendChild(parseList(newItem.list[i], rootFile + newItem.file));	// 向下递归
 			_ul.appendChild(_li);
 
 			// - get tags of item
@@ -95,14 +97,14 @@ function parseList(newItem = Model.Item) {
 }
 
 // 加载文章 //
-function LoadArticle(name) {
+function LoadArticle(fileName) {
 	xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onload = function () {
 		RefElmt.Content.innerHTML = marked.parse(xmlhttp.responseText);
 		hljs.highlightAll();
 	}
-	xmlhttp.open("GET", "./documents/" + name + ".md", true);
+	xmlhttp.open("GET", "./documents/" + fileName, true);
 	xmlhttp.send();
 
 }

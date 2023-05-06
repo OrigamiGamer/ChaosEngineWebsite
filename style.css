@@ -1,5 +1,10 @@
 body {
 	background-color: rgb(25, 25, 25);
+	background-image: url("https://w.wallhaven.cc/full/96/wallhaven-9697jd.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
 	/* background-color: white; */
 	color: rgb(240, 240, 240);
 	font-size: 16px;
@@ -8,8 +13,27 @@ body {
 	margin-left: 0;
 	margin-top: 0;
 
-	transition: 0.3s;
+	transition: 0.25s;
 }
+
+body::-webkit-scrollbar {
+	width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: rgba(100, 100, 100, 0.2);
+	transition: 0.25s;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(100, 100, 100, 0.5);
+}
+
+body::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+
 
 div.preview-box {
 	height: 100%;
@@ -31,7 +55,7 @@ div.left-title {
 }
 
 div.index-list {
-	background-color: rgb(30, 30, 30);
+	background-color: rgba(30, 30, 30, 0.9);
 	width: 100%;
 	height: 100%;
 	padding: 0.1%;
@@ -64,7 +88,7 @@ div.list-item {
 }
 
 div.list-item:hover {
-	background-color: rgb(50, 60, 100);
+	background-color: rgba(50, 60, 100, 0.8);
 }
 
 .code-class {
@@ -93,7 +117,7 @@ div.content-box {
 
 	background-color: rgba(28, 28, 28, 0.9);
 	border-width: 2px;
-	border-radius: 4px;
+	border-radius: 10px;
 	border-color: rgba(50, 50, 50, 0.2);
 	border-style: solid;
 }
