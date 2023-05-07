@@ -15,12 +15,12 @@ const Global_Doc = {
             },
             {
                 title: "Demo",
-                file:"Demo/",
-                list:[
+                file: "Demo/",
+                list: [
                     {
-                        title:"NewGame",
-                        file:"NewGame.md",
-                        list:[]
+                        title: "NewGame",
+                        file: "NewGame.md",
+                        list: []
                     }
                 ]
             },
@@ -80,6 +80,11 @@ const Global_Doc = {
                     },
 
                 ]
+            },
+            {
+                title: "Notes",
+                file: "Notes.md",
+                list: []
             }
         ]
     },

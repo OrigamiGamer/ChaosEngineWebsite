@@ -1,5 +1,5 @@
 .hljs {
-    font-family: "Microsoft YaHei Mono" !important;
+    /* font-family: "Microsoft YaHei Mono" !important; */
     background: rgba(10, 10, 10, 0.5) !important;
     color: rgb(210, 210, 210) !important;
     border-radius: 10px;
@@ -45,4 +45,14 @@
 
 .hljs-comment {
     color: rgb(107 155 85) !important;
+}
+
+code {
+    font-family: "Microsoft YaHei Mono";
+    background: rgba(15, 15, 15, 0.8);
+    color: rgb(255, 150, 200);
+    border-radius: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    /* padding-bottom: 2px; */
 }

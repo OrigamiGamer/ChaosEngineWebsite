@@ -14,6 +14,9 @@ const Model = {
 	}
 }
 
+// Start //
+RefElmt.Body.onload = Init();
+
 // 初始化 //
 function Init() {
 	console.log("This is a script demo.");
@@ -108,6 +111,3 @@ function LoadArticle(fileName) {
 	xmlhttp.send();
 
 }
-
-// Start //
-RefElmt.Body.onload = Init();
