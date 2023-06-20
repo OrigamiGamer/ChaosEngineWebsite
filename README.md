@@ -1,3 +1,3 @@
 # ChaosEngineWebsite
 
-The blog for ChaosEngine.
+The documents for ChaosEngine.
